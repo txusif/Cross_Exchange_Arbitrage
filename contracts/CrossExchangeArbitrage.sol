@@ -84,13 +84,13 @@ contract CrossExchangeArbitrage {
     }
 
     function initiateArbitrage(address _tokenBorrow, uint _amount) external {
-        IERC20(WETH).safeApprove(address(UNISWAP_ROUTER), MAX_INT);
-        IERC20(USDC).safeApprove(address(UNISWAP_ROUTER), MAX_INT);
-        IERC20(LINK).safeApprove(address(UNISWAP_ROUTER), MAX_INT);
+        IERC20(WETH).approve(address(UNISWAP_ROUTER), MAX_INT);
+        IERC20(USDC).approve(address(UNISWAP_ROUTER), MAX_INT);
+        IERC20(LINK).approve(address(UNISWAP_ROUTER), MAX_INT);
 
-        IERC20(WETH).safeApprove(address(SUSHI_ROUTER), MAX_INT);
-        IERC20(USDC).safeApprove(address(SUSHI_ROUTER), MAX_INT);
-        IERC20(LINK).safeApprove(address(SUSHI_ROUTER), MAX_INT);
+        IERC20(WETH).approve(address(SUSHI_ROUTER), MAX_INT);
+        IERC20(USDC).approve(address(SUSHI_ROUTER), MAX_INT);
+        IERC20(LINK).approve(address(SUSHI_ROUTER), MAX_INT);
 
         // liquidity pool address of USDC and WETH
         address pair = IUniswapV2Factory(UNISWAP_FACTORY).getPair(
